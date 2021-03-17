@@ -54,11 +54,18 @@ $('#login_form').randomizeFormFields({
 });
 ```
 
-This method is nesteable so you can use it with your existing code:
+This method is nesteable so you can use it with your existing asynchronous code:
 
 ```javascript
 $('#login_form').randomizeFormFields().submit(function(){
-  // do your stuff here
+  const form_data = $(this).serializeArray();
+  const url = 'process_form.php';
+  
+  let posting = $.post(url, form_data);
+  
+  posting.done(function(data){
+    // process your return here
+  });
 });
 ```
 
