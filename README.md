@@ -2,13 +2,14 @@
 
 ## Introduction
 
-Randomizes form input fields to avoid browser's autofill functions to take place. It sets the original names back before form submit.
+A jQuery plugin that randomizes form input fields to avoid browser's autofill functions to take place. It sets the original names back before form submit.
 
 ## Usage
 
 ### Load the plugin
 
 ```html
+<script src="your_scripts_folder/jquery-latest.min.js"></script>
 <script src="your_scripts_folder/randomize-form-fields/jquery.randomizeFormFields.js"></script>
 ```
 
