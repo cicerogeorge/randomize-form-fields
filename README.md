@@ -13,7 +13,7 @@ A jQuery plugin that randomizes form input fields' names to avoid browser's auto
 <script src="your_scripts_folder/randomize-form-fields/jquery.randomizeFormFields.js"></script>
 ```
 
-### Use it in any form element
+### Use it in any ```html<form>``` tag
 
 ```html
 <form id="login_form" action="" method="post">
