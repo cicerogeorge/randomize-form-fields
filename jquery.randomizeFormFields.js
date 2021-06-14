@@ -11,40 +11,44 @@
  */
 
 (function($) {
-  $.fn.randomizeFormFields = function( options ) {
-    var settings = $.extend({
-      'length': 25
-    }, options);
+	$.fn.randomizeFormFields = function( options ) {
+		var settings = $.extend({
+			'length': 25,
+			'exclude': []
+		}, options);
 
-    var fields = {};
+		var fields = {};
 
-    this.find( 'input' ).each(function(){
-      // check if input has a name
-      const field_name = $( this ).attr( 'name' );
-      if (typeof field_name !== 'undefined' && field_name !== false && field_name !== '') {
-        // randomizes field name
-        const randomName = getRandomName(settings.length);
-        fields[randomName] = $( this ).attr( 'name' );
-        $( this ).attr( 'name', randomName );
-      }
-    });
+		this.find( 'input' ).each(function(){
+			// check if input has a name
+			const field_name = $( this ).attr( 'name' );
+			if (typeof field_name !== 'undefined' && field_name !== false && field_name !== '') {
+				// check if field should be excluded
+				if (settings.exclude.indexOf(field_name) == -1) {
+					// randomizes field name
+					const randomName = getRandomName(settings.length);
+					fields[randomName] = field_name;
+					$( this ).attr( 'name', randomName );
+				}
+			}
+		});
 
-    this.submit(function( e ){
-      // get fields names back before submit
-      $( this ).find( 'input' ).each(function(){
-        $( this ).attr( 'name', fields[$( this ).attr( 'name' )] );
-      });
-    });
+		this.submit(function( e ){
+			// get fields names back before submit
+			$( this ).find( 'input' ).each(function(){
+				$( this ).attr( 'name', fields[$( this ).attr( 'name' )] );
+			});
+		});
 
-    return this;
-  };
+		return this;
+	};
 
-  function getRandomName( length ) {
-    let rand = '';
-    const char_list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
-    for ( let i = 0; i < length; i++ ) {
-      rand += char_list.charAt(Math.floor(Math.random() * char_list.length));
-    }
-    return rand;
-  }
+	function getRandomName( length ) {
+		let rand = '';
+		const char_list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
+		for ( let i = 0; i < length; i++ ) {
+			rand += char_list.charAt(Math.floor(Math.random() * char_list.length));
+		}
+		return rand;
+	}
 }( jQuery ));
