@@ -46,11 +46,10 @@ array(2) {
 
 ### Options
 
-It is possible to send a length parameter to define how long the field names should be. Default length is 25.
-
 ```javascript
 $('#login_form').randomizeFormFields({
-  length: 50
+  length: 25,// default randomized name length
+  exclude: []// fields that should not be randomized (name attribute)
 });
 ```
 
