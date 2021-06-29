@@ -4,6 +4,8 @@
 
 A jQuery plugin that randomizes form input fields' names to avoid browser's autofill functions to take place. It sets the original names back before form submit.
 
+![WtxHi](https://user-images.githubusercontent.com/25403642/123801163-6719da00-d8c0-11eb-8486-c91ebd01c072.png)
+
 ## Usage
 
 ### Load the plugin
