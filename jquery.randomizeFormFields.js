@@ -28,7 +28,10 @@
 					// randomizes field name
 					const randomName = getRandomName(settings.length);
 					fields[randomName] = field_name;
-					$( this ).attr( 'name', randomName );
+					$( this ).attr({
+						'name': randomName,
+						'autocomplete': 'off'
+					});
 				}
 			}
 		});
