@@ -24,7 +24,7 @@
 			const field_name = $( this ).attr( 'name' );
 			if (typeof field_name !== 'undefined' && field_name !== false && field_name !== '') {
 				// check if field should be excluded
-				if (settings.exclude.indexOf(field_name) == -1) {
+				if (settings.exclude.indexOf(field_name) === -1) {
 					// randomizes field name
 					const randomName = getRandomName(settings.length);
 					fields[randomName] = field_name;
